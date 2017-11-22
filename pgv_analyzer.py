@@ -5,7 +5,7 @@ Created on Wed Nov  8 13:12:27 2017
 
 @author: appel
 """
-import sys
+#import sys
 import re
 
 def list_of_report(filename):
@@ -131,19 +131,16 @@ def show_out(lst):
     ax.set_title("Cable Analysis Result")
     plt.show()
     
+    
+#================================================
+#======================================================    
 if __name__=="__main__":
     "get report_file & analysis_file "
-    report_file = "point.txt"
-    if len(sys.argv)==2:
-        report_file,analysis_file = sys.argv[1],None
-    elif len(sys.argv)>2:
-        report_file,analysis_file = sys.argv[1],sys.argv[2]
-    index = report_file.rfind(".")
-    if index ==-1:
-        analysis_file = report_file+"_sum"
-    else:
-        analysis_file = report_file[:index]+"_sum"+report_file[index:]
-        
+    report_file = ".\pgv\gnd.txt"
+    import os
+    f = os.path.splitext(report_file)
+    print(f)
+    analysis_file = f[0]+"_sum"+f[1] 
     " "           
     lists = list_of_report(report_file)
     #print(lists)
