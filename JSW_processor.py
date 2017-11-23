@@ -7,7 +7,7 @@ Created on Fri Nov 17 14:43:49 2017
 import pandas as pd
 import numpy as np
 import os
-class search_files:
+class jsw_files:
     def __init__(self,folder_in=None,filesub='-10102',folder_out = None):  
         sp = os.sep;
         self.rawfiles = []
@@ -95,7 +95,7 @@ class jsw_xc:
 
 if __name__ =="__main__":    
     #strname = raw_input("Please input directory name of JSW files: ")
-    files = search_files(folder_in=".\JSW\JSW_xls",folder_out=".\JSW\Test")
+    files = jsw_files(folder_in="./JSW/JSW_xls",folder_out="./JSW/Test")
     jsw_files,prog_files = files.rawfiles,files.newfiles
     print(jsw_files)
     print(prog_files)
