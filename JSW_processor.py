@@ -11,11 +11,11 @@ class jsw_files:
     def __init__(self,folder_in=None,filesub='-10102',folder_out = None):  
         sp = os.sep;
         self.rawfiles = []
-        self.newfiles = []
+        self.progfiles = []
         if folder_in is None:
             folder_in = "."+sp+"JSW_xls"
         if folder_out is None:
-            folder_out = "."+sp+"Test"
+            folder_out = "."+sp+"prog"
         
         try:
             for rt,dirs,files in os.walk(folder_in,topdown=False):        
@@ -23,7 +23,7 @@ class jsw_files:
                     f = os.path.splitext(fl)
                     fl_n = f[0]+filesub+f[1]
                     self.rawfiles.append(os.path.join(rt,fl))
-                    self.newfiles.append(os.path.join(folder_out,fl_n))
+                    self.progfiles.append(os.path.join(folder_out,fl_n))
         except:
             print("Error Happen! ")
     
@@ -95,8 +95,8 @@ class jsw_xc:
 
 if __name__ =="__main__":    
     #strname = raw_input("Please input directory name of JSW files: ")
-    files = jsw_files(folder_in="./JSW/JSW_xls",folder_out="./JSW/Test")
-    jsw_files,prog_files = files.rawfiles,files.newfiles
+    files = jsw_files(folder_in="./JSW/JSW_xls",folder_out="./JSW/prog")
+    jsw_files,prog_files = files.rawfiles,files.progfiles
     print(jsw_files)
     print(prog_files)
     for i in range(len(jsw_files)):
